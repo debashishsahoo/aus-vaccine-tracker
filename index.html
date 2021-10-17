@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australia COVID-19 Vaccine Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="country-name">
+                <button data-region= "aus" class="country-btn">Australia</button>
+            </div>
+            <div class="app-name">
+                COVID-19 Vaccine Tracker
+            </div>
+        </div>
+
+
+        <!-- National Data -->
+        <div class="national-data">
+
+            <div class="until-target">
+                <div class="green-border">
+                    <span class="days-left">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </span> 
+                </div>
+                <br> DAYS <br> <span class="till-target">Till 80% Target</span> <br>  
+                <span class="eta">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </span>
+            </div>
+
+            <div class="dose-data">
+                <div class="second-dose-data">
+                    <span class="second-dose-pct">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </span> % <span class="info-text">of people over the age of 16 <br> are fully vaccinated</span>
+                </div>
+                <div class="first-dose-data">
+                    <span class="first-dose-pct">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </span> % <span class="info-text">of people over the age of 16 have had their first dose</span>
+                </div>
+            </div>
+
+            <div class="chart">
+                <canvas class="ausChart" height="25" width="100"></canvas>
+            </div>
+
+        </div>
+
+
+        <!-- State Data -->
+        <div class="state-data">
+
+            <div class="state-name">
+            </div>
+
+            <div class="states-container">
+                <div class="states">
+                    <button data-region= "nsw">NSW</button>
+                    <button data-region= "vic">VIC</button>
+                    <button data-region= "qld">QLD</button>
+                    <button data-region= "act">ACT</button>
+                    <button data-region= "wa">WA</button>
+                    <button data-region= "tas">TAS</button>
+                    <button data-region= "sa">SA</button>
+                    <button data-region= "nt">NT</button>
+                </div>
+            </div>
+    
+            <div class="until-target">
+                <div class="green-border">
+                    <span class="days-left">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </span> 
+                </div>
+                <br> DAYS <br> <span class="till-target">Till 80% Target</span> <br> 
+                <span class="eta">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </span>
+            </div>
+
+            <div class="dose-data">
+                <div class="second-dose-data">
+                    <span class="second-dose-pct">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </span> % <span class="info-text">of people over the age of 16 <br> are fully vaccinated</span>
+                </div>
+                <div class="first-dose-data">
+                    <span class="first-dose-pct">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </span> % <span class="info-text">of people over the age of 16 have had their first dose</span>
+                </div>
+            </div>
+
+            <div class="chart">
+                <canvas class="stateChart" height="20" width="100"></canvas>
+            </div>
+
+        </div>
+
+
+        <!-- Select State Container -->
+        <div class="states-container">
+            <span id="select-state"> SELECT A REGION FOR MORE INFORMATION </span>
+            <div class="states">
+                <button data-region= "nsw">NSW</button>
+                <button data-region= "vic">VIC</button>
+                <button data-region= "qld">QLD</button>
+                <button data-region= "act">ACT</button>
+                <button data-region= "wa">WA</button>
+                <button data-region= "tas">TAS</button>
+                <button data-region= "sa">SA</button>
+                <button data-region= "nt">NT</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/charts.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

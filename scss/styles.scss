@@ -1,0 +1,221 @@
+@import "variables.scss";
+@import "animations.scss";
+
+body {
+    background-color: $background-color;
+    color: $primary-color;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    margin: 0px 10px 0px 10px;
+    padding: 0px 10px 0px 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "header header"
+    "nationaldata nationaldata"
+    "statescontainer statescontainer";
+    justify-content: space-evenly;    
+    row-gap: 1rem;
+    margin-top: 5px;
+    padding: 0px;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    padding-left: 20px;
+    grid-area: header;
+    .country-name {
+        font-size: 5rem;
+    }
+    .app-name {
+        font-size: 3rem;
+        color: $tertiary-color;
+    }
+}
+
+.national-data {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "untiltarget dosedata"
+        "untiltarget chart";
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeIn 1s;
+    grid-area: nationaldata;
+}
+
+.state-data {
+    display: none;  /* changes to "grid" when a state button is clicked */
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 120px auto auto;
+    grid-template-areas: 
+        "statename statescontainer"
+        "untiltarget dosedata"
+        "untiltarget chart";
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeIn 1s;
+    grid-area: nationaldata;
+}
+
+.state-name {
+    font-size: 7rem;
+    grid-area: statename;
+}
+
+.until-target {
+    font-size: 2.25rem;
+    grid-area: untiltarget; 
+}
+
+.days-left {
+    padding: 20px;
+    font-size: 8rem;
+    animation: fadeIn 2s;
+}
+
+/* green border around the number of days left */
+.green-border {
+    display: inline-block;
+    border: 15px solid $secondary-color;
+    border-radius: 50%;
+    margin: 20px;
+    padding: 10px;
+}
+
+/* text that reads "Till 80% Target" */
+.till-target {
+    font-size: 1.75rem;
+}
+
+/* estimated date when target will be met */
+.eta {
+    font-size: 2rem;
+}
+
+.dose-data {
+    align-self: start;
+    justify-self: end;
+    grid-area: dosedata;
+}
+
+.second-dose-data {
+    text-align: right;
+    font-size: 7rem;
+    .info-text {
+        display: inline-block;
+        text-align: center;
+        font-size: 2.25rem;
+        color: $secondary-color;
+    }
+}
+
+.first-dose-data {
+    text-align: right;
+    font-size: 2.5rem;
+    .info-text {
+        display: inline-block;
+        text-align: center;
+        font-size: 1.5rem;
+        color: $secondary-color;
+    }
+}
+
+/* make certain numerical elements appear bigger on hover */
+.eta, 
+.days-left, 
+.second-dose-pct, 
+.first-dose-pct {
+    display: inline-block;
+    transition: all .2s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.chart {
+    grid-area: chart;
+}
+
+.states {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    margin: 1px;
+}
+
+#select-state {
+    opacity: 0.75;
+}
+
+/* states list container when national data is being displayed */
+.container > .states-container {
+    text-align: center;
+    font-size: 2rem;
+    margin: 10px;
+    grid-area: statescontainer;
+}
+
+/* states list container when state data is being displayed */
+.state-data > .states-container {
+    text-align: center;
+    font-size: 2rem;
+    animation: slideIn 1s;
+    grid-area: statescontainer;
+}
+
+button {
+    background-color: $background-color;
+    color: $primary-color;
+    border: none;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 15px;
+    transition: all .3s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+        background-color: $primary-color;
+        color: $background-color;
+    }
+    &:disabled {
+        cursor: pointer;
+        opacity: 0.5;
+        font-size: 2.5rem;
+    }
+}
+
+/* button in the states list container when state data is being displayed */
+.state-data button {
+    animation: slideIn 1s;
+}
+
+/* "Australia" button */
+.country-btn {
+    border-radius: 0%;
+    font-size: 5rem;
+    &:hover {
+        font-size: 5.5rem;
+        background-color: $primary-color;
+        color: $background-color;
+    }
+    &:disabled {
+        cursor: pointer;
+        opacity: 1;
+        font-size: 5rem;
+    }
+}

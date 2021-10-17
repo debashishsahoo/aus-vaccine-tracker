@@ -1,0 +1,326 @@
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+
+body {
+  background-color: #650e47;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin: 0px 10px 0px 10px;
+  padding: 0px 10px 0px 10px;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+      grid-template-areas: "header header" "nationaldata nationaldata" "statescontainer statescontainer";
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  row-gap: 1rem;
+  margin-top: 5px;
+  padding: 0px;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 50px;
+  padding-left: 20px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+}
+
+.header .country-name {
+  font-size: 5rem;
+}
+
+.header .app-name {
+  font-size: 3rem;
+  color: #00cbff;
+}
+
+.national-data {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+      grid-template-areas: "untiltarget dosedata" "untiltarget chart";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: nationaldata;
+}
+
+.state-data {
+  display: none;
+  /* changes to "grid" when a state button is clicked */
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  -ms-grid-rows: 120px auto auto;
+      grid-template-rows: 120px auto auto;
+      grid-template-areas: "statename statescontainer" "untiltarget dosedata" "untiltarget chart";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-animation: fadeIn 1s;
+          animation: fadeIn 1s;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: nationaldata;
+}
+
+.state-name {
+  font-size: 7rem;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: statename;
+}
+
+.until-target {
+  font-size: 2.25rem;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: untiltarget;
+}
+
+.days-left {
+  padding: 20px;
+  font-size: 8rem;
+  -webkit-animation: fadeIn 2s;
+          animation: fadeIn 2s;
+}
+
+/* green border around the number of days left */
+.green-border {
+  display: inline-block;
+  border: 15px solid #60d835;
+  border-radius: 50%;
+  margin: 20px;
+  padding: 10px;
+}
+
+/* text that reads "Till 80% Target" */
+.till-target {
+  font-size: 1.75rem;
+}
+
+/* estimated date when target will be met */
+.eta {
+  font-size: 2rem;
+}
+
+.dose-data {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: dosedata;
+}
+
+.second-dose-data {
+  text-align: right;
+  font-size: 7rem;
+}
+
+.second-dose-data .info-text {
+  display: inline-block;
+  text-align: center;
+  font-size: 2.25rem;
+  color: #60d835;
+}
+
+.first-dose-data {
+  text-align: right;
+  font-size: 2.5rem;
+}
+
+.first-dose-data .info-text {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #60d835;
+}
+
+/* make certain numerical elements appear bigger on hover */
+.eta,
+.days-left,
+.second-dose-pct,
+.first-dose-pct {
+  display: inline-block;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.eta:hover,
+.days-left:hover,
+.second-dose-pct:hover,
+.first-dose-pct:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.chart {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: chart;
+}
+
+.states {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-size: 2rem;
+  margin: 1px;
+}
+
+#select-state {
+  opacity: 0.75;
+}
+
+/* states list container when national data is being displayed */
+.container > .states-container {
+  text-align: center;
+  font-size: 2rem;
+  margin: 10px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: statescontainer;
+}
+
+/* states list container when state data is being displayed */
+.state-data > .states-container {
+  text-align: center;
+  font-size: 2rem;
+  -webkit-animation: slideIn 1s;
+          animation: slideIn 1s;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: statescontainer;
+}
+
+button {
+  background-color: #650e47;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 15px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: #ffffff;
+  color: #650e47;
+}
+
+button:disabled {
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 2.5rem;
+}
+
+/* button in the states list container when state data is being displayed */
+.state-data button {
+  -webkit-animation: slideIn 1s;
+          animation: slideIn 1s;
+}
+
+/* "Australia" button */
+.country-btn {
+  border-radius: 0%;
+  font-size: 5rem;
+}
+
+.country-btn:hover {
+  font-size: 5.5rem;
+  background-color: #ffffff;
+  color: #650e47;
+}
+
+.country-btn:disabled {
+  cursor: pointer;
+  opacity: 1;
+  font-size: 5rem;
+}
+/*# sourceMappingURL=styles.css.map */

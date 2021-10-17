@@ -1,0 +1,36 @@
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+/*# sourceMappingURL=animations.css.map */

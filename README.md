@@ -38,6 +38,10 @@ The dashboard provides the most relevant numbers regarding vaccination targets f
 
 ![image](https://user-images.githubusercontent.com/69211573/137514973-046d56e0-63c3-4274-8ec2-7b908e0ffbec.png)
 
+- Tick mark displayed when 80% vaccination target is completed in a particular region
+
+<img width="1440" alt="tickmark-completion" src="https://user-images.githubusercontent.com/69211573/138649836-4df55317-3e47-4970-b0ad-2e10fe579972.png">
+
 ## How To Run This Project
 
 1. Clone the repository.

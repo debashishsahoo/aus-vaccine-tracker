@@ -208,8 +208,13 @@ fetch(url)
                         function renderAusData() {
                             document.querySelector(".national-data .second-dose-pct").innerHTML = ausSecondDosePct;
                             document.querySelector(".national-data .first-dose-pct").innerHTML = ausFirstDosePct;  
-                            document.querySelector(".national-data .days-left").innerHTML = ausDaysLeftUntilTarget;
                             document.querySelector(".national-data .eta").innerHTML = "ETA: " + ausEstimatedTargetDate;    
+                            if (ausDaysLeftUntilTarget <= 0) {  
+                                // If days left reaches 0, render a tick mark displaying target completion
+                                document.querySelector(".national-data .days-left").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="150" height="200" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16"> <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/> </svg>';
+                            } else {
+                                document.querySelector(".national-data .days-left").innerHTML = ausDaysLeftUntilTarget;
+                            }
                         }
 
                         // Populating the DOM with National Data by default on the landing page
@@ -221,7 +226,7 @@ fetch(url)
                         // Function that takes in region name from clicked button to calculate days left till target and estimated target date for that state/region
                         function calculateDaysLeftAndDate(region) {
                             let daysLeftUntilTarget = Math.ceil(dataVariablesByRegion[`${region}`][3] / dataVariablesByRegion[`${region}`][2]);
-
+                            
                             let estimatedTarget = new Date(urlDate);
                             estimatedTarget.setDate(estimatedTarget.getDate() + daysLeftUntilTarget);
                             var options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -267,8 +272,13 @@ fetch(url)
                                 document.querySelector(".state-data .state-name").innerHTML = region.toUpperCase(); 
                                 document.querySelector(".state-data .second-dose-pct").innerHTML = dataVariablesByRegion[region][0];
                                 document.querySelector(".state-data .first-dose-pct").innerHTML = dataVariablesByRegion[region][1]; 
-                                document.querySelector(".state-data .days-left").innerHTML = daysLeftUntilTarget;
                                 document.querySelector(".state-data .eta").innerHTML = "ETA: " + estimatedTargetDate;
+                                if (daysLeftUntilTarget <= 0) {  
+                                    // If days left reaches 0, render a tick mark displaying target completion
+                                    document.querySelector(".state-data .days-left").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="150" height="200" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16"> <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/> </svg>';
+                                } else {
+                                    document.querySelector(".state-data .days-left").innerHTML = daysLeftUntilTarget;
+                                }
                             
                                 // Refreshing the chart canvas before rendering the selected state's chart so that chart animations load during all instances
                                 document.querySelector(".state-data .chart").innerHTML = "";

@@ -74,4 +74,4 @@ The dashboard provides the most relevant numbers regarding vaccination targets f
 
 
 ## License
-This project is licensed under the [GPL-3.0 License](./LICENSE). Please include a link to this GitHub repository.
+This project is licensed under the [GPL-3.0 License](./LICENSE). Please include a link to this GitHub repository!
